@@ -1,9 +1,9 @@
 # DAT250-Gruppe-9
 Group project for DAT250
 
-Magnus Leira
+[Magnus Leira](https://github.com/h578031)
 
-Silje Tiana Moen
+[Silje Tiana Moen](https://github.com/TheSTiana)
 
 [Isabel Foster](https://github.com/IsaFoster)
 
