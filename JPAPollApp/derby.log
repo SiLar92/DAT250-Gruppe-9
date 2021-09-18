@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Sep 18 13:09:36 CEST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-017b-f898-e977-00000eff0318 
+on database directory C:\Users\magnu\Apache\db-derby-10.15.2.0-bin\databases\pollsDbv4 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2626b418 
+Loaded from file:/C:/Users/magnu/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=12.0.2+10
+user.dir=C:\Users\magnu\DAT250WS\JPAPollApp
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
