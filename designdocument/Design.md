@@ -82,3 +82,4 @@ Change account settings (remove this?)
 ![](mockups/Resultpage.png "")
 
 ## System-specific architectural diagram
+![](images/architecturaldiagram.png "")
