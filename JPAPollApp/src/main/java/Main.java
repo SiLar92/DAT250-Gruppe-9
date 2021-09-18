@@ -1,3 +1,5 @@
+import DAO.PollDAO;
+import DAO.PollUserDAO;
 import models.Poll;
 import models.PollUser;
 
@@ -12,6 +14,43 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        PollDAO pollDAO = new PollDAO();
+
+        /**Poll poll = new Poll();
+
+        PollUser user = new PollUser();
+        user.setAdmin(false);
+        user.setEmail("magnus.leira@gmail.com");
+        user.setName("Magnus Leira");
+
+        PollUserDAO pollUserDAO = new PollUserDAO();
+
+        pollUserDAO.persist(user);
+
+
+        poll.setUser(user);
+        poll.setPollCode(5443);
+        poll.setCountYes(12);
+
+        pollDAO.persist(poll);**/
+
+        List<Poll> pollList = pollDAO.getAll();
+        System.out.println(pollList.size());
+
+
+
+
+
+
+
+         //Poll p = pollDAO.findById((long)3);
+        //System.out.println(p.getPollCode());
+/**
+        List<Poll> pollList = pollDAO.getOwnedPolls("magnus.leira@gmail.com");
+
+        System.out.println(pollList.size());
+
 
         final String PERSISTENCE_UNIT_NAME = "poll";
         EntityManagerFactory factory;
@@ -61,7 +100,7 @@ public class Main {
 
         // It is always good practice to close the EntityManager so that
         // resources are conserved.
-        em.close();
+        em.close();**/
 
 
     }

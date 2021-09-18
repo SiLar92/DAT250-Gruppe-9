@@ -1,5 +1,7 @@
 package DAO;
 
+import java.util.List;
+
 public interface Dao<E, K> {
 
     void persist(E entity);
@@ -7,5 +9,7 @@ public interface Dao<E, K> {
     void remove(E entity);
 
     E findById(K id);
+
+    List<E> getAll();
 
 }
