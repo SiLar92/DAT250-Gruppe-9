@@ -37,21 +37,48 @@ and a user should be able to do everything a vote is able to do.
 
 The application flow diagram shows the different steps in the voting process. 
 At the start screen the user/voter will be prompted to either login, 
-register or enter a pollcode to access a poll directly.
+register or enter a pollcode to access a poll directly, see FrontPage.
+
+Upon entering a valid pollcode the voter can cast a vote (yes/no) 
+as shown in the Vote Page mockup. 
+Once voted the voter will be shown the live result of the poll, 
+shown in the poll status page(??)
+
+Alternatively, a user can choose to login, or a voter can register. 
+A registration form is shown in the Signup page.
+
+Once successfully logged in a user is forwarded to the overview page. 
+We envision the overview page to consist of several sub-pages, 
+each showing the user’s current polls, previous polls and a template to create a new poll. 
+See Home page. 
+A user that’s also an administrator will have additional options to delete users and view all polls 
+(not shown in mockup). From the overview page the user can perform the following actions:
+Access a selected poll and perform actions such as delete the poll, 
+close the poll, vote, or access the live results.
+Closing a poll will publish the results of the poll
+Create a new poll
+Change account settings (remove this?)
+
 
 ## System specific architectural diagram
 ![](images/architecturaldiagram.png "")
 
-## User Screens Mock-Up
+## User Screens Mock-Ups
 
 ### Front Page
+![](mockups/Startpage.png "")
 
 ### Login and Sign Up Pages
+![](mockups/Loginpage.png "")
+![](mockups/Signuppage.png "")
 
 ### Home Page
+![](mockups/Homepage.png "")
 
 ### Vote Page
+![](mockups/Votepage.png "")
 
 ### Poll Status Page
+![](mockups/Resultpage.png "")
 
 ## System-specific architectural diagram
