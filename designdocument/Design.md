@@ -39,6 +39,9 @@ The application flow diagram shows the different steps in the voting process.
 At the start screen the user/voter will be prompted to either login, 
 register or enter a pollcode to access a poll directly.
 
+## System specific architectural diagram
+![](images/architecturaldiagram.png "")
+
 ## User Screens Mock-Up
 
 ### Front Page
