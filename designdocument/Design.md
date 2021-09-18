@@ -3,7 +3,7 @@
 ## The Application
 
 ## Domain Model
-![](domainmodel.png "")
+![](images/domainmodel.png "")
 
 The domain model consists of the three objects *account*, *poll* and *vote*.
 
@@ -20,7 +20,7 @@ To make this possible each vote is linked to an email.
 
 
 ## Use Case Diagram
-![](usecase.png "")
+![](images/usecase.png "")
 
 The use case diagram describes three types of roles. 
 - Voter, which is someone without a user account.
@@ -33,7 +33,7 @@ and a user should be able to do everything a vote is able to do.
 
 
 ## Application Flow Diagram
-![](applicationflow.png "")
+![](images/applicationflow.png "")
 
 The application flow diagram shows the different steps in the voting process. 
 At the start screen the user/voter will be prompted to either login, 
