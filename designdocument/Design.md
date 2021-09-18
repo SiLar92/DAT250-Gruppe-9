@@ -54,7 +54,7 @@ A user that’s also an administrator will have additional options to delete use
 (not shown in mockups). From the overview page the user can perform the following actions:
 - Access a selected poll and perform actions such as delete the poll, 
 close the poll, vote, or access the live results.
-- Closing a poll will publish the results of the poll
+    - Closing a poll will publish the results of the poll
 - Create a new poll
 
 
