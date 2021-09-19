@@ -34,9 +34,9 @@ public class Main {
         poll.setCountYes(12);
 
         pollDAO.persist(poll);**/
-
-        List<Poll> pollList = pollDAO.getAll();
-        System.out.println(pollList.size());
+        System.out.println(pollDAO.findById((long)3));
+        //List<Poll> pollList = pollDAO.getAll();
+        //System.out.println(pollList.size());
 
 
 

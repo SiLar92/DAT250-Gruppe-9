@@ -37,9 +37,7 @@ public abstract class JpaDao<E,K> implements Dao<E,K>{
     }
 
     public E findById(K id){
-        em.getTransaction().begin();
         E r = (E) em.find(ec, id);
-        em.getTransaction().commit();
         return r;
     }
     public List<E> getAll(){
