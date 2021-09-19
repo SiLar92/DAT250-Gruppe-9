@@ -61,6 +61,10 @@ close the poll, vote, or access the live results.
 ## System specific architectural diagram
 ![](images/architecturaldiagram.png "")
 
+Could be considered an IoT level-3 system, as the web-application is not an IoT device. We only have 
+one type of device, and presumably only one of them. Data is stored and worked with in the cloud in the 
+cloud-based web-application.
+
 ## User Screens Mock-Ups
 
 ### Front Page
@@ -78,6 +82,3 @@ close the poll, vote, or access the live results.
 
 ### Poll Status Page
 ![](mockups/Resultpage.png "")
-
-## System-specific architectural diagram
-![](images/architecturaldiagram.png "")
