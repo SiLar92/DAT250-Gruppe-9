@@ -9,3 +9,6 @@ Group project for DAT250
 
 [Sindre Larsen](https://github.com/SiLar92)
 
+----
+
+Design document [here](designdocument/design.md)
