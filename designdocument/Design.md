@@ -5,16 +5,16 @@
 ## Domain Model
 ![](images/domainmodel.png "")
 
-The domain model consists of the three objects *account*, *poll* and *vote*.
+The domain model consists of the three objects *user*, *poll* and *vote*.
 
-Account keeps information about those registered as users of the system.
+User keeps information about those registered as users of the system.
 An email is used as their ID, and is what they use with a password to login.
 A poll is something only a registered user is able to create,
 and they will then be the owner of the poll. 
 The owner is able to publish and decide when to close the poll. 
 They also have the choice to restrict the poll to only registered users.
 Which is necessary since the system allows for non-registered voters.
-This rises the question of how many times a person should be able to vote on one poll.
+This raises the question of how many times a person should be able to vote on one poll.
 We believe it is desirable to restrict a person to only one vote pr poll.
 To make this possible each vote is linked to an email.
 
