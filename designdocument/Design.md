@@ -68,14 +68,39 @@ cloud-based web-application.
 ## User Screens Mock-Ups
 
 ### Front Page
+The frontpage where one can choose between sing up, login or entering a pollcode.
+As of now, one has to hit enter after writing in a valid pollcode to access poll.
+Might consider adding a button for it.
+
 ![](mockups/Startpage.png "")
 
 ### Login and Sign Up Pages
+Some rather standard pages for login and sign up.
+Might be reasonable to only have one field for name, 
+since we will most likely be adding them together.
 ![](mockups/Loginpage.png "")
 ![](mockups/Signuppage.png "")
 
 ### Home Page
-![](mockups/Homepage.png "")
+The homepage is used to give an overview.
+The active user can on the "current" tab see their current active polls.
+On the "closed" tab they can look at closed polls. 
+Has added some different variants of how it may look,
+depending on if it was created with a set closing date or not. 
+And how to know if the poll is only for registered users.
+Considering adding the name of the active user as part ot the title.
+![](mockups/Homepage_current.png "")
+![](mockups/Homepage_closed.png "")
+
+### Create
+Here is a form to create a poll. 
+One checkbox gives the creator the option of only making the poll available to registered users.
+Another checkbox makes it possible to decide not to have a predefined date for when the poll closes.
+If the creator decides they want to manually close the poll themselves, 
+they will not have the option to choose closing date and time. 
+![](mockups/Createpage.png "")
+![](mockups/Createpage_manual.png "")
+
 
 ### Vote Page
 ![](mockups/Votepage.png "")
