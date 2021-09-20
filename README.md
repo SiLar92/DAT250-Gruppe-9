@@ -11,4 +11,4 @@ Group project for DAT250
 
 ----
 
-Design document [here](designdocument/design.md)
+Design document [here](designdocument/Design.md)
