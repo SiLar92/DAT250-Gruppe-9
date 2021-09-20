@@ -12,8 +12,10 @@ import java.util.List;
 public class PollUser {
 
     @Id
-    private String email;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long userId;
 
+    private String email;
     private String name;
     private String password;
     private boolean admin;

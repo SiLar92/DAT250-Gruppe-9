@@ -2,54 +2,50 @@ import DAO.PollDAO;
 import DAO.PollUserDAO;
 import models.Poll;
 import models.PollUser;
+import models.Status;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
 
-
     public static void main(String[] args) {
 
-        PollDAO pollDAO = new PollDAO();
+        // PollDAO pollDAO = new PollDAO();
 
         /**Poll poll = new Poll();
 
-        PollUser user = new PollUser();
-        user.setAdmin(false);
-        user.setEmail("magnus.leira@gmail.com");
-        user.setName("Magnus Leira");
+         PollUser user = new PollUser();
+         user.setAdmin(false);
+         user.setEmail("magnus.leira@gmail.com");
+         user.setName("Magnus Leira");
 
-        PollUserDAO pollUserDAO = new PollUserDAO();
+         PollUserDAO pollUserDAO = new PollUserDAO();
 
-        pollUserDAO.persist(user);
+         pollUserDAO.persist(user);
 
 
-        poll.setUser(user);
-        poll.setPollCode(5443);
-        poll.setCountYes(12);
+         poll.setUser(user);
+         poll.setPollCode(5443);
+         poll.setCountYes(12);
 
-        pollDAO.persist(poll);**/
-        System.out.println(pollDAO.findById((long)3));
+         pollDAO.persist(poll);**/
+        //System.out.println(pollDAO.findById((long)3));
         //List<Poll> pollList = pollDAO.getAll();
         //System.out.println(pollList.size());
 
 
-
-
-
-
-
-         //Poll p = pollDAO.findById((long)3);
+        //Poll p = pollDAO.findById((long)3);
         //System.out.println(p.getPollCode());
-/**
-        List<Poll> pollList = pollDAO.getOwnedPolls("magnus.leira@gmail.com");
 
-        System.out.println(pollList.size());
+        //List<Poll> pollList = pollDAO.getOwnedPolls("magnus.leira@gmail.com");
+
+        //System.out.println(pollList.size());
 
 
         final String PERSISTENCE_UNIT_NAME = "poll";
@@ -58,18 +54,14 @@ public class Main {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
 
-        // Begin a new local transaction so that we can persist a new entity
         em.getTransaction().begin();
 
-        // read the existing entries
-        //Query q = em.createQuery("select u from User u");
-        // Persons should be empty
 
-        // do we have entries?
-       // boolean createNewEntries = (q.getResultList().size() == 0);
+        Query q = em.createQuery("select u from PollUser u");
 
-        // No, so lets create new entries
-        //if (createNewEntries) {
+        boolean createNewEntries = (q.getResultList().size() == 0);
+
+        if (createNewEntries) {
             PollUser user = new PollUser();
             user.setName("Hare");
             user.setEmail("hare.pus@gmail.com");
@@ -79,29 +71,21 @@ public class Main {
             List<Poll> pollList = new ArrayList<Poll>();
             for (int i = 0; i < 4; i++) {
                 Poll poll = new Poll();
-                poll.setTitle("poll"+i);
-                poll.setDescription(i+". poll");
-                poll.setCountYes(i+10);
+                poll.setTitle("poll" + i);
+                poll.setDescription(i + ". poll");
+                poll.setCountYes(i + 10);
                 poll.setCountNo(i);
-                poll.setCountNo(i*2+10);
+                poll.setCountNo(i * 2 + 10);
+                poll.setStatus(Status.OPEN);
                 pollList.add(poll);
                 em.persist(poll);
-                // now persists the family person relationship
-
-
             }
             user.setPolls(pollList);
             em.persist(user);
+            em.getTransaction().commit();
+            em.close();
 
 
-        // Commit the transaction, which will cause the entity to
-        // be stored in the database
-        em.getTransaction().commit();
-
-        // It is always good practice to close the EntityManager so that
-        // resources are conserved.
-        em.close();**/
-
-
+        }
     }
 }

@@ -12,7 +12,7 @@ public class Vote {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long voteId;
 
-    private boolean yesNo;
+    private Answer answer;
 
     @ManyToOne
     private PollUser user;
