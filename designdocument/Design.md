@@ -5,16 +5,16 @@
 ## Domain Model
 ![](images/domainmodel.png "")
 
-The domain model consists of the three objects *account*, *poll* and *vote*.
+The domain model consists of the three objects *user*, *poll* and *vote*.
 
-Account keeps information about those registered as users of the system.
+User keeps information about those registered as users of the system.
 An email is used as their ID, and is what they use with a password to login.
 A poll is something only a registered user is able to create,
 and they will then be the owner of the poll. 
 The owner is able to publish and decide when to close the poll. 
 They also have the choice to restrict the poll to only registered users.
 Which is necessary since the system allows for non-registered voters.
-This rises the question of how many times a person should be able to vote on one poll.
+This raises the question of how many times a person should be able to vote on one poll.
 We believe it is desirable to restrict a person to only one vote pr poll.
 To make this possible each vote is linked to an email.
 
@@ -61,23 +61,49 @@ close the poll, vote, or access the live results.
 ## System specific architectural diagram
 ![](images/architecturaldiagram.png "")
 
+Could be considered an IoT level-3 system, as the web-application is not an IoT device. We only have 
+one type of device, and presumably only one of them. Data is stored and worked with in the cloud in the 
+cloud-based web-application.
+
 ## User Screens Mock-Ups
 
 ### Front Page
+The frontpage where one can choose between sing up, login or entering a pollcode.
+As of now, one has to hit enter after writing in a valid pollcode to access poll.
+Might consider adding a button for it.
+
 ![](mockups/Startpage.png "")
 
 ### Login and Sign Up Pages
+Some rather standard pages for login and sign up.
+Might be reasonable to only have one field for name, 
+since we will most likely be adding them together.
 ![](mockups/Loginpage.png "")
 ![](mockups/Signuppage.png "")
 
 ### Home Page
-![](mockups/Homepage.png "")
+The homepage is used to give an overview.
+The active user can on the "current" tab see their current active polls.
+On the "closed" tab they can look at closed polls. 
+Has added some different variants of how it may look,
+depending on if it was created with a set closing date or not. 
+And how to know if the poll is only for registered users.
+Considering adding the name of the active user as part ot the title.
+![](mockups/Homepage_current.png "")
+![](mockups/Homepage_closed.png "")
+
+### Create
+Here is a form to create a poll. 
+One checkbox gives the creator the option of only making the poll available to registered users.
+Another checkbox makes it possible to decide not to have a predefined date for when the poll closes.
+If the creator decides they want to manually close the poll themselves, 
+they will not have the option to choose closing date and time. 
+![](mockups/Createpage.png "")
+![](mockups/Createpage_manual.png "")
+
 
 ### Vote Page
 ![](mockups/Votepage.png "")
 
 ### Poll Status Page
 ![](mockups/Resultpage.png "")
-
-## System-specific architectural diagram
-![](images/architecturaldiagram.png "")
