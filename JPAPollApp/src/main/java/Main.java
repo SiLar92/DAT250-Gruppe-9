@@ -1,40 +1,27 @@
-import DAO.PollDAO;
-import DAO.PollUserDAO;
-import models.Poll;
-import models.PollUser;
-import models.Status;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
 
         // PollDAO pollDAO = new PollDAO();
 
-        /**Poll poll = new Poll();
+        *//**Poll poll = new Poll();
 
-         PollUser user = new PollUser();
-         user.setAdmin(false);
-         user.setEmail("magnus.leira@gmail.com");
-         user.setName("Magnus Leira");
+     PollUser user = new PollUser();
+     user.setAdmin(false);
+     user.setEmail("magnus.leira@gmail.com");
+     user.setName("Magnus Leira");
 
-         PollUserDAO pollUserDAO = new PollUserDAO();
+     PollUserDAO pollUserDAO = new PollUserDAO();
 
-         pollUserDAO.persist(user);
+     pollUserDAO.persist(user);
 
 
-         poll.setUser(user);
-         poll.setPollCode(5443);
-         poll.setCountYes(12);
+     poll.setUser(user);
+     poll.setPollCode(5443);
+     poll.setCountYes(12);
 
-         pollDAO.persist(poll);**/
+     pollDAO.persist(poll);**//*
         //System.out.println(pollDAO.findById((long)3));
         //List<Poll> pollList = pollDAO.getAll();
         //System.out.println(pollList.size());
@@ -83,9 +70,7 @@ public class Main {
             user.setPolls(pollList);
             em.persist(user);
             em.getTransaction().commit();
-            em.close();
+            em.close();*/
 
 
-        }
-    }
 }

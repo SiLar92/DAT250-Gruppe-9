@@ -21,6 +21,4 @@ public class Vote {
     private Poll pool;
 
 
-
-
 }

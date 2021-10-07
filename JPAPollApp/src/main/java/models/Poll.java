@@ -27,7 +27,4 @@ public class Poll {
     private List<Vote> votes;
 
 
-
-
-
 }

@@ -2,9 +2,9 @@ package DAO;
 
 import models.PollUser;
 
-public class PollUserDAO extends JpaDao<PollUser,String> {
+public class PollUserDAO extends JpaDao<PollUser, String> {
 
-    public PollUserDAO(){
+    public PollUserDAO() {
 
     }
 
