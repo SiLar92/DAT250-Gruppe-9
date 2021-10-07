@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/poll")
+@RequestMapping(path = "/poll")
 public class PollController {
 
 
@@ -25,6 +25,7 @@ public class PollController {
     /**
      * returns specific polls by id
      * example where id is 3:  /poll/3
+     *
      * @param id of poll
      * @return poll by id
      */
@@ -33,8 +34,10 @@ public class PollController {
         return new PollDAO().findById(id);
     }
 
-
-
+    @PostMapping("")
+    public void postPoll(@RequestBody Poll poll) {
+        new PollDAO().persist(poll);
+    }
 
 
 }
