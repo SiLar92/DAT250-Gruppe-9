@@ -3,6 +3,6 @@ package models;
 public enum Status {
     CREATED,
     OPEN,
-    CLOESED,
+    CLOSED,
     PUBLISHED
 }
