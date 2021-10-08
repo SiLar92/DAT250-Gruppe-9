@@ -17,6 +17,7 @@
     <properties>
         <maven.compiler.source>12</maven.compiler.source>
         <maven.compiler.target>12</maven.compiler.target>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
