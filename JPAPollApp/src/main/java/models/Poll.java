@@ -18,6 +18,7 @@ public class Poll {
     private String title;
     private String description;
     private Date endTime;
+    // have start time too?
     private int countYes;
     private int countNo;
     private Status status;
