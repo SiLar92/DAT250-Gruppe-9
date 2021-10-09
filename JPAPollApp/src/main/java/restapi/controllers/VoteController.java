@@ -20,7 +20,7 @@ public class VoteController {
         return new VoteDAO().findById(id);
     }
 
-    @PutMapping("")
+    @PostMapping("")
     public void create(@RequestBody Vote newVote) {
         VoteDAO vote_dao = new VoteDAO();
         vote_dao.persist(newVote);
@@ -47,7 +47,7 @@ public class VoteController {
         List<Vote> allVotes = new VoteDAO().getAll();
         VoteDAO vote_dao = new VoteDAO();
         for (Vote user : allVotes) {
-            vote_dao.remove(vote_dao.findById(user.getVoteId()));
+            vote_dao.remove(vote_dao.findById(user.getId()));
         }
 
         // return some success / fail code??
