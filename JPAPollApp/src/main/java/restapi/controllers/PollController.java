@@ -1,7 +1,9 @@
 package restapi.controllers;
 
 import DAO.PollDAO;
+import DAO.PollUserDAO;
 import models.Poll;
+import models.PollUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,5 +51,19 @@ public class PollController {
         PollDAO pollDAO = new PollDAO();
         Poll poll = pollDAO.findById(id);
         pollDAO.remove(poll);
+    }
+
+    /**
+     * Method to easily clear db of polls for testing
+     */
+    @DeleteMapping("/deleteAll")
+    public void deleteAll() {
+        List<Poll> allPolls = new PollDAO().getAll();
+        PollDAO pollDAO = new PollDAO();
+        for (Poll poll : allPolls) {
+            pollDAO.remove(pollDAO.findById(poll.getPollId()));
+        }
+
+        // return some success / fail code??
     }
 }
