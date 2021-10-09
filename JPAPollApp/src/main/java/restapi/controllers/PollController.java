@@ -2,9 +2,7 @@ package restapi.controllers;
 
 import DAO.PollDAO;
 import DAO.PollUserDAO;
-import DAO.VoteDAO;
 import models.Poll;
-import models.Vote;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,11 +33,11 @@ public class PollController {
     /**
      * Create/POST method
      *
-     * @param poll the new poll
+     * @param poll    the new poll
      * @param user_id The user_id of the poll owner
      */
-    @PostMapping("/create/{user_id}")
-    public void postPoll(@RequestBody Poll poll,@PathVariable Long user_id) {
+    @PostMapping("/{user_id}")
+    public void postPoll(@RequestBody Poll poll, @PathVariable Long user_id) {
         PollUserDAO user_dao = new PollUserDAO();
         poll.setOwner(user_dao.findById(user_id));
         new PollDAO().persist(poll);
@@ -90,77 +88,20 @@ public class PollController {
 
     // TODO update status
 
-    @PutMapping(value = "/{poll_id}/{user_id}/vote")
-    public void createVote(@RequestBody Vote vote, @PathVariable final Long poll_id, @PathVariable final Long user_id){
-        VoteDAO vote_dao = new VoteDAO();
-        PollUserDAO user_dao = new PollUserDAO();
-        PollDAO poll_dao = new PollDAO();
-        vote.setUser(user_dao.findById(user_id));
-        vote.setPoll(poll_dao.findById(poll_id));
-        vote_dao.persist(vote);
-    }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @DeleteMapping("/{id}")
-    public void deletePoll(@PathVariable Long id) {
+    @DeleteMapping("/{poll_id}")
+    public void deletePoll(@PathVariable Long poll_id) {
         PollDAO pollDAO = new PollDAO();
-        Poll poll = pollDAO.findById(id);
+        Poll poll = pollDAO.findById(poll_id);
         pollDAO.remove(poll);
     }
 
     /**
      * Method to easily clear db of polls for testing
      */
-    @DeleteMapping("/deleteAll")
+    @DeleteMapping("/")
     public void deleteAll() {
         List<Poll> allPolls = new PollDAO().getAll();
         PollDAO pollDAO = new PollDAO();

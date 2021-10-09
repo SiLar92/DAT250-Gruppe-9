@@ -88,7 +88,7 @@ public class UserController {
     /**
      * Method to easily clear db of users for testing
      */
-    @DeleteMapping("/deleteAll")
+    @DeleteMapping("")
     public void deleteAll() {
         List<PollUser> allUsers = new PollUserDAO().getAll();
         PollUserDAO user_dao = new PollUserDAO();
