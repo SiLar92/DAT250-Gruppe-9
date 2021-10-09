@@ -37,7 +37,7 @@ public class PollUser {
     private String password;
     private boolean admin;
 
-    @OneToMany(mappedBy ="user")
+    @OneToMany(mappedBy ="owner")
     private List<Poll> polls;
 
     @OneToMany(mappedBy = "user")
