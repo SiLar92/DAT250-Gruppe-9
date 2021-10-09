@@ -65,7 +65,7 @@ public class UserController {
         if(newUser.getVotes()==null)
             newUser.setVotes(current.getVotes());
 
-        newUser.setUserId(current.getUserId());
+        newUser.setId(current.getId());
         // ensures poll id does not get changed even if specified in PUT
         // could change this to allow userID change, but we really should not
 
@@ -93,7 +93,7 @@ public class UserController {
         List<PollUser> allUsers = new PollUserDAO().getAll();
         PollUserDAO user_dao = new PollUserDAO();
         for (PollUser user : allUsers) {
-            user_dao.remove(user_dao.findById(user.getUserId()));
+            user_dao.remove(user_dao.findById(user.getId()));
         }
 
         // return some success / fail code??

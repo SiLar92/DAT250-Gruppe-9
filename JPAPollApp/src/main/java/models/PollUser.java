@@ -12,7 +12,7 @@ public class PollUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    private long id;
 
     private String email;
     private String name;
@@ -37,7 +37,7 @@ public class PollUser {
     private String password;
     private boolean admin;
 
-    @OneToMany
+    @OneToMany(mappedBy ="user")
     private List<Poll> polls;
 
     @OneToMany(mappedBy = "user")

@@ -14,24 +14,12 @@ public class VoteController {
         return new VoteDAO().getAll();
     }
 
-
     @GetMapping("/{id}")
     public Vote getById(@PathVariable Long id) {
         return new VoteDAO().findById(id);
     }
 
-    @PostMapping("")
-    public void create(@RequestBody Vote newVote) {
-        VoteDAO vote_dao = new VoteDAO();
-        vote_dao.persist(newVote);
-        // return some success / fail code??
-    }
-
-    /**
-     *
-     * @param id of the user to be deleted
-     */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
         VoteDAO vote_dao = new VoteDAO();
         vote_dao.remove(vote_dao.findById(id));
@@ -39,10 +27,7 @@ public class VoteController {
         // return some success / fail code??
     }
 
-    /**
-     * Method to easily clear db of users for testing
-     */
-    @DeleteMapping("/deleteAll")
+    @DeleteMapping("/delete/")
     public void deleteAll() {
         List<Vote> allVotes = new VoteDAO().getAll();
         VoteDAO vote_dao = new VoteDAO();
@@ -52,4 +37,6 @@ public class VoteController {
 
         // return some success / fail code??
     }
+
+
 }

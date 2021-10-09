@@ -42,7 +42,7 @@ public class fillDB {
 //        test_vote.setVoteId(0);
         test_vote.setAnswer(Answer.YES);
         test_vote.setUser(dao_user.findById(1L));
-        test_vote.setPool(dao_poll.findById(1L));
+        test_vote.setPoll(dao_poll.findById(1L));
 
         dao_user.persist(test_user);
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long pollId;
+    private long id;
 
     private String pollCode;
     private String title;
@@ -24,7 +24,10 @@ public class Poll {
     private Status status;
     private boolean onlyRegistered;
 
-    @OneToMany(mappedBy = "pool")
+    @ManyToOne
+    private PollUser owner;
+
+    @OneToMany(mappedBy = "poll")
     private List<Vote> votes;
 
 
