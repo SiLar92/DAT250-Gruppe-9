@@ -42,9 +42,29 @@ public class PollController {
 
         PollDAO pollDAO = new PollDAO();
         Poll oldPoll = pollDAO.findById(id);
+
+        if (poll.getPollCode() == null)
+            poll.setPollCode(oldPoll.getPollCode());
+        if (poll.getTitle() == null)
+            poll.setTitle(oldPoll.getTitle());
+        if (poll.getDescription() == null)
+            poll.setDescription(oldPoll.getDescription());
+        if (poll.getEndTime() == null)
+            poll.setEndTime(oldPoll.getEndTime());
+        if (poll.getStatus() == null)
+            poll.setStatus(oldPoll.getStatus());
+//        if (poll.getOnlyRegistered() == null)
+//            poll.setOnlyRegistered(oldPoll.getOnlyRegistered());
+
+
+        poll.setCountYes(oldPoll.getCountYes());
+        poll.setCountNo(oldPoll.getCountNo());
         poll.setPollId(oldPoll.getPollId());
+
         pollDAO.update(poll);
     }
+
+    // TODO update status
 
     @DeleteMapping("/{id}")
     public void deletePoll(@PathVariable Long id) {
