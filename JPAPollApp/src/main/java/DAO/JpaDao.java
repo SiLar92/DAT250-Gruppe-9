@@ -25,14 +25,12 @@ public abstract class JpaDao<E, K> implements Dao<E, K> {
     public void persist(E entity) {
         em.getTransaction().begin();
         em.persist(entity);
-
         em.getTransaction().commit();
     }
 
     public void remove(E entity) {
         em.getTransaction().begin();
         em.remove(entity);
-
         em.getTransaction().commit();
     }
 

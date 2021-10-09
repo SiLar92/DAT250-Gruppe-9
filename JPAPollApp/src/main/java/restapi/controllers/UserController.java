@@ -1,8 +1,6 @@
 package restapi.controllers;
 
-import DAO.PollDAO;
 import DAO.PollUserDAO;
-import models.Poll;
 import models.PollUser;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,41 +10,92 @@ import java.util.List;
 @RequestMapping(path = "/user")
 public class UserController {
 
+    /**
+     * Read all users
+     * @return List of all users
+     */
     @GetMapping("")
     public List<PollUser> getAll() {
         return new PollUserDAO().getAll();
     }
 
+
+    /**
+     * Get a user by user ID
+     * @param id the id of the user to get
+     * @return the user matching the id
+     */
     @GetMapping("/{id}")
     public PollUser getById(@PathVariable Long id) {
         return new PollUserDAO().findById(id);
     }
 
-//    @PostMapping("")
-//    public void postUser(@RequestBody Poll poll) {
-//        new PollDAO().persist(poll);
-//    }
 
-    @PutMapping("/{id}")
-    public void updateUser(@RequestBody Poll poll, @PathVariable Long id) {
-//        PollDAO pollDAO = new PollDAO();
-//        Poll oldPoll = pollDAO.findById(id);
-//        poll.setPollId(oldPoll.getPollId());
-//        pollDAO.update(poll);
-//
-
-        // finn gammel? oppdater verdien?
+    /**
+     * Create User
+     * @param newUser the new user as JSON
+     */
+    @PostMapping("")
+    public void create(@RequestBody PollUser newUser) {
         PollUserDAO user_dao = new PollUserDAO();
-        user_dao.update(user_dao.findById(id));
+        user_dao.persist(newUser);
 
-
-
-
+        // return some success / fail code??
     }
 
+    /**
+     * Update user record
+     * @param newUser JSON of the new user details
+     * @param id not needed if user contains id?
+     */
+    @PutMapping("/{id}")
+    public void update(@RequestBody PollUser newUser, @PathVariable Long id) {
+        PollUserDAO user_dao = new PollUserDAO();
+        PollUser current = user_dao.findById(id);
+
+        // updates individual fields if specified
+        if(newUser.getName() == null)
+            newUser.setName(current.getName());
+        if(newUser.getEmail()== null)
+            newUser.setEmail(current.getEmail());
+        if(newUser.getPassword()==null)
+            newUser.setPassword(current.getPassword());
+        if(newUser.getPolls()==null)
+            newUser.setPolls(current.getPolls());
+        if(newUser.getVotes()==null)
+            newUser.setVotes(current.getVotes());
+
+        newUser.setUserId(current.getUserId());
+        // ensures poll id does not get changed even if specified in PUT
+        // could change this to allow userID change, but we really should not
+
+        user_dao.update(newUser);
+    }
+
+
+    /**
+     *
+     * @param id of the user to be deleted
+     */
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public void delete(@PathVariable Long id) {
         PollUserDAO user_dao = new PollUserDAO();
         user_dao.remove(user_dao.findById(id));
+
+        // return some success / fail code??
+    }
+
+    /**
+     * Method to easily clear db of users for testing
+     */
+    @DeleteMapping("/deleteAll")
+    public void deleteAll() {
+        List<PollUser> allUsers = new PollUserDAO().getAll();
+        PollUserDAO user_dao = new PollUserDAO();
+        for (PollUser user : allUsers) {
+            user_dao.remove(user_dao.findById(user.getUserId()));
+        }
+
+        // return some success / fail code??
     }
 }

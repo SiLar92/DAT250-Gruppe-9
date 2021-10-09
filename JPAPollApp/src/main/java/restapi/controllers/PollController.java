@@ -35,6 +35,9 @@ public class PollController {
 
     @PutMapping("/{id}")
     public void updatePoll(@RequestBody Poll poll, @PathVariable Long id) {
+        // Leaves fields as null if not present in JSON put message
+        //
+
         PollDAO pollDAO = new PollDAO();
         Poll oldPoll = pollDAO.findById(id);
         poll.setPollId(oldPoll.getPollId());
