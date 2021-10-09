@@ -35,6 +35,15 @@ public class PollController {
         new PollDAO().persist(poll);
     }
 
+    /**
+     * TODO
+     * A somewhat problematic update method.
+     * Are not able to get if the pole is only for registered.
+     * Which makes the status false by default,
+     * so remember to give correct status.
+     * @param poll
+     * @param id
+     */
     @PutMapping("/{id}")
     public void updatePoll(@RequestBody Poll poll, @PathVariable Long id) {
         // Leaves fields as null if not present in JSON put message
