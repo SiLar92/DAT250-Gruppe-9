@@ -39,6 +39,8 @@ public class PollController {
      */
     @PostMapping("/{user_id}")
     public void postPoll(@RequestBody Poll newPoll, @PathVariable Long user_id) {
+        //TODO Automatically set counts to 0 as we should not update these with requests?
+
         PollUserDAO user_dao = new PollUserDAO();
         PollUser owner = user_dao.findById(user_id);
 
