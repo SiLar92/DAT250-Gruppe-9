@@ -25,6 +25,7 @@ public class Poll {
     private boolean onlyRegistered;
 
     @ManyToOne
+    @JoinColumn(name="owner_id")
     private PollUser owner;
 
     @OneToMany(mappedBy = "poll")

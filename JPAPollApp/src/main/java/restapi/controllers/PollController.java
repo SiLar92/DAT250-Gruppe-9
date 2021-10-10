@@ -3,6 +3,7 @@ package restapi.controllers;
 import DAO.PollDAO;
 import DAO.PollUserDAO;
 import models.Poll;
+import models.PollUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,18 +34,26 @@ public class PollController {
     /**
      * Create/POST method
      *
-     * @param poll    the new poll
+     * @param newPoll    the new poll
      * @param user_id The user_id of the poll owner
      */
     @PostMapping("/{user_id}")
-    public void postPoll(@RequestBody Poll poll, @PathVariable Long user_id) {
+    public void postPoll(@RequestBody Poll newPoll, @PathVariable Long user_id) {
         PollUserDAO user_dao = new PollUserDAO();
-        poll.setOwner(user_dao.findById(user_id));
-        new PollDAO().persist(poll);
+        PollUser owner = user_dao.findById(user_id);
+
+        newPoll.setOwner(owner);
+
+        //TODO Clean this up and add an addPoll method in PollUser?
+//        List<Poll> polls = owner.getPolls();
+//        polls.add(newPoll);
+//        owner.setPolls(polls);
+
+        new PollDAO().persist(newPoll);
+//        user_dao.persist(owner);
     }
 
 //    /**
-//     * TODO
 //     * A somewhat problematic update method.
 //     * Are not able to get if the pole is only for registered.
 //     * Which makes the status false by default,
@@ -86,7 +95,7 @@ public class PollController {
 //    }
 
 
-    // TODO update status
+    // TODO update status of a poll to closed or published
 
 
 
