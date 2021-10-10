@@ -12,18 +12,23 @@ import java.util.List;
 public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long pollId;
+    private long id;
 
     private String pollCode;
     private String title;
     private String description;
     private Date endTime;
+    // have start time too?
     private int countYes;
     private int countNo;
     private Status status;
     private boolean onlyRegistered;
 
-    @OneToMany(mappedBy = "pool")
+    @ManyToOne
+    @JoinColumn(name="owner_id")
+    private PollUser owner;
+
+    @OneToMany(mappedBy = "poll")
     private List<Vote> votes;
 
 

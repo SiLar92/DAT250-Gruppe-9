@@ -10,15 +10,17 @@ import javax.persistence.*;
 public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long voteId;
+    private long id;
 
     private Answer answer;
 
     @ManyToOne
+    @JoinColumn(name="user_id")
     private PollUser user;
 
     @ManyToOne
-    private Poll pool;
+    @JoinColumn(name="poll_id")
+    private Poll poll;
 
 
 }

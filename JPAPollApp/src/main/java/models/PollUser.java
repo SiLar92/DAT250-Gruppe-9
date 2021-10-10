@@ -12,14 +12,32 @@ public class PollUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    private long id;
 
     private String email;
     private String name;
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
     private String password;
     private boolean admin;
 
-    @OneToMany
+    @OneToMany(mappedBy ="owner")
     private List<Poll> polls;
 
     @OneToMany(mappedBy = "user")

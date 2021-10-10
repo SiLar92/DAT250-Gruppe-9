@@ -1,5 +1,7 @@
 package DAO;
 
-public class VoteDAO {
+import models.Vote;
+
+public class VoteDAO  extends JpaDao<Vote, Long> {
 
 }
